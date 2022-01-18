@@ -138,8 +138,8 @@
                     </li>
                 </ul>
             </div>
-            <p class="copyright-text">Copyright &copy; 2018
-                <a href="home.html">Groover</a> All Right Reserved</p>
+            <p class="copyright-text">Copyright &copy; {{ date("Y") }}
+                 All Right Reserved</p>
         </div>
     </div>
     <!-- Bottom-Footer /- -->

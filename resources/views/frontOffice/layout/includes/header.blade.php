@@ -21,7 +21,8 @@
             <nav>
                 <ul class="secondary-nav g-nav">
                     <li>
-                        <a>My Account
+                        <a>
+                            Mon compte
                             <i class="fas fa-chevron-down u-s-m-l-9"></i>
                         </a>
                         <ul class="g-dropdown" style="width:200px">
@@ -40,13 +41,25 @@
                                     <i class="far fa-check-circle u-s-m-r-9"></i>
                                     Checkout</a>
                             </li>
-                            <li>
-                                <a href="account.html">
-                                    <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                    Login / Signup</a>
-                            </li>
+                            @guest()
+                                <li>
+                                    <a href="{{ route("login") }}">
+                                        <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
+                                        Login / Signup</a>
+                                </li>
+                            @endguest
+                            @auth("web")
+                                <li>
+                                    <form method="post" action="{{ route("logout") }}">
+                                        @csrf
+                                        <i class="fas fa-sign-out-alt u-s-m-r-9"></i>
+                                        <input type="submit" class="btn btn-sm" value="Log out">
+                                    </form>
+                                </li>
+                            @endauth
                         </ul>
                     </li>
+                    {{--
                     <li>
                         <a>USD
                             <i class="fas fa-chevron-down u-s-m-l-9"></i>
@@ -72,6 +85,7 @@
                                 <a href="#">ARB</a>
                             </li>
                         </ul>
+                --}}
                 </ul>
             </nav>
         </div>
@@ -84,7 +98,7 @@
                 <div class="col-lg-3 col-md-9 col-sm-6">
                     <div class="brand-logo text-lg-center">
                         <a href="home.html">
-                            <img src="images/main-logo/groover-branding-1.png" alt="Groover Brand Logo" class="app-brand-logo">
+                            <img src="{{asset("template")}}/images/main-logo/groover-branding-1.png" alt="Groover Brand Logo" class="app-brand-logo">
                         </a>
                     </div>
                 </div>
@@ -170,7 +184,7 @@
             <ul class="mini-cart-list">
                 <li class="clearfix">
                     <a href="single-product.html">
-                        <img src="images/product/product@1x.jpg" alt="Product">
+                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
                         <span class="mini-item-name">Casual Hoodie Full Cotton</span>
                         <span class="mini-item-price">$55.00</span>
                         <span class="mini-item-quantity"> x 1 </span>
@@ -178,7 +192,7 @@
                 </li>
                 <li class="clearfix">
                     <a href="single-product.html">
-                        <img src="images/product/product@1x.jpg" alt="Product">
+                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
                         <span class="mini-item-name">Black Rock Dress with High Jewelery Necklace</span>
                         <span class="mini-item-price">$55.00</span>
                         <span class="mini-item-quantity"> x 1 </span>
@@ -186,7 +200,7 @@
                 </li>
                 <li class="clearfix">
                     <a href="single-product.html">
-                        <img src="images/product/product@1x.jpg" alt="Product">
+                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
                         <span class="mini-item-name">Xiaomi Note 2 Black Color</span>
                         <span class="mini-item-price">$55.00</span>
                         <span class="mini-item-quantity"> x 1 </span>
@@ -194,7 +208,7 @@
                 </li>
                 <li class="clearfix">
                     <a href="single-product.html">
-                        <img src="images/product/product@1x.jpg" alt="Product">
+                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
                         <span class="mini-item-name">Dell Inspiron 15</span>
                         <span class="mini-item-price">$55.00</span>
                         <span class="mini-item-quantity"> x 1 </span>
@@ -217,7 +231,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3">
-                    <div class="v-menu">
+                    <div class="v-menu v-close">
                             <span class="v-title">
                                 <i class="ion ion-md-menu"></i>
                                 All Categories
@@ -605,7 +619,7 @@
                                             <!-- Remember layer image should be place on empty space and its not overlap your list items because user could not read your list items. -->
                                             <div class="v-image" style="bottom: 0;right: -25px">
                                                 <a href="#" class="d-block">
-                                                    <img src="images/banners/mega-3.png" class="img-fluid" alt="Product">
+                                                    <img src="{{asset("template")}}/images/banners/mega-3.png" class="img-fluid" alt="Product">
                                                 </a>
                                             </div>
                                         </div>

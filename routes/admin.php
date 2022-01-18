@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('backOffice.layout.panel');
+});
+
