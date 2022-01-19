@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,17 @@ Route::get('/admin', function () {
 
 Route::get('/dashboard', function () {
     return view('backOffice.layout.panel');
+});
+
+Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
+
+    Route::middleware("guest:admin")->namespace("Auth")->group(function () {
+        Route::get("login", [AdminController::Class, "login"])->name("login");
+        Route::post("check", [AdminController::Class, "check"])->name("check");
+    });
+
+    Route::middleware("auth:admin")->namespace("Auth")->group(function () {
+        Route::get("dashboard", [AdminController::Class, "index"])->name("dashboard");
+    });
 });
 
