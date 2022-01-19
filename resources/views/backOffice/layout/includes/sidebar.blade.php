@@ -104,7 +104,7 @@
                 <i class="icon-paper menu-icon"></i>
                 <span class="menu-title">Logout</span>
             </a>
-            <form id="logoutForm" method="post" action="{{ route("logout") }}">
+            <form id="logoutForm" method="GET" action="{{ route("admin.logout") }}">
                 @csrf
                 <i class="fas fa-sign-out-alt u-s-m-r-9 menu-icone"></i>
             </form>

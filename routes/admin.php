@@ -21,11 +21,12 @@ use Illuminate\Support\Facades\Route;
 ############################## Managers Login Routes Begin ###################################################################
 Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
 
-
         Route::middleware("guest:admin")->namespace("Auth")->group(function () {
             Route::get("login", [AdminController::Class, "login"])->name("login");
             Route::post("check", [AdminController::Class, "check"])->name("check");
         });
+
+        Route::get("logout", [AdminController::Class, "logout"])->name("logout");
 
     ############################## Managers Login Routes End #####################################################################
 
