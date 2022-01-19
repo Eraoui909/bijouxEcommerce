@@ -22,6 +22,6 @@ Route::get('/admin', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('backOffice.layout.panel');
+    return view('backOffice.dashboard');
 });
 
