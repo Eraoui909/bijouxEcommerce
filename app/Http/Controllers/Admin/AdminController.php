@@ -25,11 +25,12 @@ class AdminController extends Controller
             "password" => "required|min:8"
         ],
         [
-            "email.exists" => "cet email n'existe pas"
+            "email.exists" => "cet email n'existe pas",
+            "password.min" => "le mot de pass doit contien plus de 8 character"
         ]);
 
         if(Auth::guard("admin")->attempt($request->only(["email", "password"]))){
-            return redirect()->route("admin.dashboard");
+            return redirect()->route("backOffice.panel");
         }else{
             return redirect()->route("admin.login")->with("fail", "merci de verifier vos informations d'authentification");
         }
