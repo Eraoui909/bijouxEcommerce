@@ -100,10 +100,15 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
+
+            <a class="nav-link" onclick="document.getElementById('logoutForm').submit()" href="#">
                 <i class="icon-paper menu-icon"></i>
-                <span class="menu-title">Documentation</span>
+                <span class="menu-title">Logout</span>
             </a>
+            <form id="logoutForm" method="post" action="{{ route("logout") }}">
+                @csrf
+                <i class="fas fa-sign-out-alt u-s-m-r-9 menu-icone"></i>
+            </form>
         </li>
     </ul>
 </nav>

@@ -16,36 +16,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/management', function () {
-    return view('backOffice.dashboard');
-});
+//Route::get('/management', function () {
+//    return view('backOffice.dashboard');
+//});
 
-    Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
+############################## Managers Login Routes Begin ###################################################################
+Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
 
-        Route::middleware("guest:admin")->namespace("Auth")->group(function () {
-            Route::get("login", [AdminController::Class, "login"])->name("login");
-            Route::post("check", [AdminController::Class, "check"])->name("check");
-        });
+    Route::middleware("guest:admin")->namespace("Auth")->group(function () {
+        Route::get("login", [AdminController::Class, "login"])->name("login");
+        Route::post("check", [AdminController::Class, "check"])->name("check");
+    });
+    ############################## Managers Login Routes End #####################################################################
 
-        Route::middleware("auth:admin")->namespace("Auth")->group(function () {
-            Route::get("dashboard", [AdminController::Class, "index"])->name("dashboard");
-        });
+    #############################    Managers Tasks Begin    #####################################################################
+    Route::middleware("auth:admin")->namespace("Auth")->group(function () {
+
+        Route::get("dashboard", [AdminController::Class, "index"])->name("dashboard");
+        Route::get("management/categories", [CategoryController::Class, "index"])->name("index.category");
 
 
-        Route::middleware("auth:admin")->prefix("managers")->group(function () {
+        #################################   Super Admin Tasks Begin    ###########################################################
+        Route::middleware(["auth:admin", "isSuper"])->prefix("managers")->group(function () {
+
             Route::get("/", [ManagerController::Class, "display"])->name("managers.display");
             Route::get("add", [ManagerController::Class, "add"])->name("managers.add");
             Route::post("insert", [ManagerController::Class, "insert"])->name("managers.insert");
             Route::post("delete", [ManagerController::Class, "delete"])->name("managers.delete");
             Route::post("changeRole", [ManagerController::Class, "changeRole"])->name("managers.changeRole");
+
         });
+        #################################   Super Admin Tasks End    #############################################################
+
+        #################################   Editor Tasks Begin    ################################################################
+        Route::middleware(["auth:admin", "isEditor"])->prefix("managers")->group(function () {
+
+            Route::get("management/create-category", [CategoryController::Class, "create"])->name("create.category");
+            Route::post("management/store-category", [CategoryController::Class, "store"])->name("store.category");
+            Route::get("management/edit-category/{id}", [CategoryController::Class, "edit"])->name("edit.category");
+            Route::post("management/update-category/{id}", [CategoryController::Class, "update"])->name("update.category");
+            Route::get("management/destroy-category/{id}", [CategoryController::Class, "destroy"])->name("destroy.category");
+
+        });
+        #################################   Editor Tasks Begin    ################################################################
 
     });
-
-Route::get("management/categories", [CategoryController::Class, "index"])->name("index.category");
-Route::get("management/create-category", [CategoryController::Class, "create"])->name("create.category");
-Route::post("management/store-category", [CategoryController::Class, "store"])->name("store.category");
-Route::get("management/edit-category/{id}", [CategoryController::Class, "edit"])->name("edit.category");
-Route::post("management/update-category/{id}", [CategoryController::Class, "update"])->name("update.category");
-Route::get("management/destroy-category/{id}", [CategoryController::Class, "destroy"])->name("destroy.category");
-
+    #############################    Managers Tasks End    #######################################################################
+});
