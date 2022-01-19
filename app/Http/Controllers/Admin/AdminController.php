@@ -10,12 +10,12 @@ class AdminController extends Controller
 {
     public function login()
     {
-        return view('admin.login');
+        return view('backOffice.login');
     }
 
     public function index()
     {
-        return view('admin.dashboard');
+        return view('backOffice.layout.panel');
     }
 
     public function check(Request $request) {

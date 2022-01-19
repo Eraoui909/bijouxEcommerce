@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,18 +20,27 @@ Route::get('/management', function () {
     return view('backOffice.dashboard');
 });
 
-Route::namespace("Admin")->prefix("management")->name("admin.")->group(function () {
+    Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
 
-    Route::middleware("guest:admin")->namespace("Auth")->group(function () {
-        Route::get("login", [AdminController::Class, "login"])->name("login");
-        Route::post("check", [AdminController::Class, "check"])->name("check");
+        Route::middleware("guest:admin")->namespace("Auth")->group(function () {
+            Route::get("login", [AdminController::Class, "login"])->name("login");
+            Route::post("check", [AdminController::Class, "check"])->name("check");
+        });
+
+        Route::middleware("auth:admin")->namespace("Auth")->group(function () {
+            Route::get("dashboard", [AdminController::Class, "index"])->name("dashboard");
+        });
+
+
+        Route::middleware("auth:admin")->prefix("managers")->group(function () {
+            Route::get("/", [ManagerController::Class, "display"])->name("managers.display");
+            Route::get("add", [ManagerController::Class, "add"])->name("managers.add");
+            Route::post("insert", [ManagerController::Class, "insert"])->name("managers.insert");
+            Route::post("delete", [ManagerController::Class, "delete"])->name("managers.delete");
+            Route::post("changeRole", [ManagerController::Class, "changeRole"])->name("managers.changeRole");
+        });
+
     });
-
-    Route::middleware("auth:admin")->namespace("Auth")->group(function () {
-        Route::get("dashboard", [AdminController::Class, "index"])->name("dashboard");
-    });
-
-});
 
 Route::get("management/categories", [CategoryController::Class, "index"])->name("index.category");
 Route::get("management/create-category", [CategoryController::Class, "create"])->name("create.category");

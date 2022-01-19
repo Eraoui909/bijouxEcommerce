@@ -21,7 +21,8 @@ class Managers extends Migration
             $table->string('password');
             $table->string('address');
             $table->string('phone');
-            $table->integer('role')->default(2); // admin: 0; editor: 1; moderator:3;
+            $table->integer('role')->default(2); // admin: 0; editor: 1; moderator:2;
+            $table->string('picture');
             $table->rememberToken();
             $table->timestamps();
         });

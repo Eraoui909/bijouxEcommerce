@@ -16,12 +16,13 @@ class Manager extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'full_name',
-        'email',
-        'password',
-        'address',
-        'phone',
-        'role'
+        "full_name",
+        "email",
+        "password",
+        "address",
+        "phone",
+        "role",
+        "picture"
     ];
 
     /**
