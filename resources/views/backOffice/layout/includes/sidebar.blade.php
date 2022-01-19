@@ -27,12 +27,12 @@
             </a>
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ route("index.category") }}">Les catégories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route("admin.index.category") }}">Les catégories</a></li>
                 </ul>
             </div>
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ route("create.category") }}">Ajouter catégorie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route("admin.create.category") }}">Ajouter catégorie</a></li>
                 </ul>
             </div>
         </li>
@@ -44,7 +44,7 @@
             </a>
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">ChartJs</a></li>
                 </ul>
             </div>
         </li>
@@ -56,7 +56,7 @@
             </a>
             <div class="collapse" id="tables">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Basic table</a></li>
                 </ul>
             </div>
         </li>
@@ -99,10 +99,15 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
+
+            <a class="nav-link" onclick="document.getElementById('logoutForm').submit()" href="#">
                 <i class="icon-paper menu-icon"></i>
-                <span class="menu-title">Documentation</span>
+                <span class="menu-title">Logout</span>
             </a>
+            <form id="logoutForm" method="post" action="{{ route("logout") }}">
+                @csrf
+                <i class="fas fa-sign-out-alt u-s-m-r-9 menu-icone"></i>
+            </form>
         </li>
     </ul>
 </nav>

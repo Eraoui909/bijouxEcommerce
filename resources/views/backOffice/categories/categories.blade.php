@@ -33,7 +33,7 @@
             <h4 class="card-title">Les catégories</h4>
 
             <p class="card-description">
-                <a href="{{ route("create.category") }}"  class="btn btn-sm btn-outline-success">
+                <a href="{{ route("admin.create.category") }}"  class="btn btn-sm btn-outline-success">
                     <i class="mdi mdi-plus-box"></i> <strong style="position: relative;top: -5px;font-size: 16px;">Ajouter</strong>
                 </a>
             </p>
@@ -55,7 +55,7 @@
                                 <td>{{ $category->description }}</td>
                                 <td>{{ $category->created_at }}</td>
                                 <td>
-                                    <a href="{{ route("edit.category",["id" => $category->id ]) }}" style="margin: 0 5px">
+                                    <a href="{{ route("admin.edit.category",["id" => $category->id ]) }}" style="margin: 0 5px">
                                         <i class="mdi mdi-border-color"></i>
                                     </a>
                                     <a href="#" data-id="{{ $category->id }}" class="ha-delete-category">
@@ -94,7 +94,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    $.ajax("/management/destroy-category/"+category_id,{
+                    $.ajax("/admin/management/destroy-category/"+category_id,{
                        type: "get",
                         success: function (data) {
                             if(data === "success"){

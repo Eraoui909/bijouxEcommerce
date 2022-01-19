@@ -52,13 +52,13 @@ class CategoryController extends Controller
 
         if($validator->fails()){
             $errors = $validator->errors();
-            return redirect()->route("create.category")->withErrors($errors)->withInputs($request->all());
+            return redirect()->route("admin.create.category")->withErrors($errors)->withInputs($request->all());
         }else{
             Category::create([
                 "name"           => $request->name,
                 "description"    => $request->description
             ]);
-            return redirect()->route("index.category")->with([ 'success' => 'votre catégorie a été ajouter'] );
+            return redirect()->route("admin.index.category")->with([ 'success' => 'votre catégorie a été ajouter'] );
         }
 
     }
@@ -109,13 +109,13 @@ class CategoryController extends Controller
 
         if($validator->fails()){
             $errors = $validator->errors();
-            return redirect()->route("create.category")->withErrors($errors)->withInputs($request->all());
+            return redirect()->route("admin.create.category")->withErrors($errors)->withInputs($request->all());
         }else{
             $category = Category::find($id);
             $category->name = $request->name;
             $category->description = $request->description;
             $category->save();
-            return redirect()->route("index.category")->with([ 'success' => 'votre catégorie a été modifier'] );
+            return redirect()->route("admin.index.category")->with([ 'success' => 'votre catégorie a été modifier'] );
         }
     }
 

@@ -14,7 +14,7 @@
         <div class="card-body">
             <h4 class="card-title">Créer une catégorie</h4>
 
-            <form class="forms-sample" id="ha-add-category-form" method="POST" action="{{ route("store.category") }}">
+            <form class="forms-sample" id="ha-add-category-form" method="POST" action="{{ route("admin.store.category") }}">
                 @csrf
                 <div class="form-group">
                     <label for="nomCat">Nom</label>
