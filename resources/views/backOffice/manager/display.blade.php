@@ -1,5 +1,13 @@
 @extends("backOffice.layout.panel")
 
+@section("style")
+    <link rel="stylesheet" href="{{asset("adminPanel")}}/vendors/mdi/css/materialdesignicons.min.css"">
+    <style>
+
+    </style>
+@endsection
+
+
 @section("content-wrapper")
     <div class="main-panel">
         <div class="content-wrapper">
@@ -9,7 +17,9 @@
                         <div class="card-body">
                             <h4 class="card-title">Managers List</h4>
                             <p class="card-description">
-                                Add class <code>All managers</code>
+                                <a href="{{ route("admin.managers.add") }}"  class="btn btn-sm btn-outline-success">
+                                    <i class="mdi mdi-plus-box"></i> <strong style="position: relative;top: -2px;font-size: 16px;">Ajouter</strong>
+                                </a>
                             </p>
                             <div class="table-responsive">
                                 <table class="table table-striped">

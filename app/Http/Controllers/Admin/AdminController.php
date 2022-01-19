@@ -15,7 +15,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('backOffice.layout.panel');
+        return view('backOffice.dashboard');
     }
 
     public function check(Request $request) {
@@ -30,9 +30,11 @@ class AdminController extends Controller
         ]);
 
         if(Auth::guard("admin")->attempt($request->only(["email", "password"]))){
-            return redirect()->route("backOffice.panel");
+            return redirect()->route("admin.dashboard");
         }else{
             return redirect()->route("admin.login")->with("fail", "merci de verifier vos informations d'authentification");
         }
     }
+
+
 }
