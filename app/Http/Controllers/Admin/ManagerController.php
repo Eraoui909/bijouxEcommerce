@@ -30,8 +30,7 @@ class ManagerController extends Controller
         $manager->password   = Hash::make($request->input("password"));
         $manager->address    = $request->input("address");
         $manager->phone      = $request->input("Phone");
-//        echo $manager->picture    = UploadController::savePics($request, "managers", $request->input("full_name")) ? UploadController::savePics($request, "managers", $request->input("full_name"))[0] : "avatar.png";
-        $manager->picture    = "avatar.png";
+        $manager->picture    = UploadController::managerPic($request);
 
         $manager->save();
         return redirect("admin/managers");
@@ -40,6 +39,9 @@ class ManagerController extends Controller
     public function delete(Request $request)
     {
         $manager = Manager::find($request->input("id"));
+        $image_path = public_path("uploads/managers/avatars/{$manager->picture}");
+        unlink($image_path);
+
         $manager->delete();
 
         return redirect("admin/managers");
