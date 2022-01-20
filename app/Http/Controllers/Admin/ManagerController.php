@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Helper\UploadController;
 use App\Models\Manager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 class ManagerController extends Controller
@@ -52,7 +53,7 @@ class ManagerController extends Controller
         $manager = Manager::find(auth("admin")->user()->id);
 
         if ($manager->picture !== "avatar.png"){
-            unlink(asset("assets/uploads/mangers/" . $manager->picture));
+            File::delete(asset("assets/uploads/mangers/" . $manager->picture));
         }
         $manager->picture  = "avatar.png";
 
@@ -65,7 +66,8 @@ class ManagerController extends Controller
         $manager = Manager::find(auth("admin")->user()->id);
 
         if ($manager->picture !== "avatar.png"){
-            unlink(asset("assets/uploads/mangers/" . $manager->picture));
+
+            File::delete(asset("assets/uploads/mangers/" . $manager->picture));
         }
         $manager->picture  = UploadController::managerPic($request);
 

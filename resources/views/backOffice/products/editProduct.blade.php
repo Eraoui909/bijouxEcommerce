@@ -1,6 +1,6 @@
 @extends("backOffice.layout.panel")
 
-@section("title","Ajouter un nouveau produit")
+@section("title","Modifier produit")
 
 @section("style")
 
@@ -12,19 +12,18 @@
 
 @section("content-wrapper")
 
-
     <div class="card" >
         @if(\Illuminate\Support\Facades\Session::has('error'))
             <div class="alert alert-danger">{{ \Illuminate\Support\Facades\Session::get('error') }}</div>
         @endif
         <div class="card-body">
-            <h4 class="card-title">Créer un produit</h4>
+            <h4 class="card-title">Modifier ce produit</h4>
 
-            <form class="forms-sample" method="POST" action="{{ route("admin.store.product") }}" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="{{ route("admin.update.product",["id" => $product->id]) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="exampleInputName1">Nom</label>
-                    <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputName1" placeholder="Name">
+                    <input name="name" value="{{ $product->name }}" type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputName1" placeholder="Name">
                     @error('name')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -36,7 +35,7 @@
                     <label for="selectCategory">Gategory</label>
                     <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" id="selectCategory">
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            <option {{ $product->category_id == $category->id ? "selected" : "" }} value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                     @error('category_id')
@@ -48,7 +47,7 @@
 
                 <div class="form-group">
                     <label for="prixInput">Prix</label>
-                    <input name="price" type="text" class="form-control @error('price') is-invalid @enderror" id="prixInput" placeholder="prox de produit">
+                    <input name="price" value="{{ $product->price }}"  type="text" class="form-control @error('price') is-invalid @enderror" id="prixInput" placeholder="prox de produit">
                     @error('price')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -58,7 +57,7 @@
 
                 <div class="form-group">
                     <label for="discountInput">Réduction</label>
-                    <input name="discount" type="text" class="form-control  @error('discount') is-invalid @enderror" id="discountInput" placeholder="Réduction (en %)">
+                    <input name="discount" value="{{ $product->discount }}"  type="text" class="form-control  @error('discount') is-invalid @enderror" id="discountInput" placeholder="Réduction (en %)">
                     @error('discount')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -68,7 +67,7 @@
 
                 <div class="form-group">
                     <label for="sotckInput">Stock</label>
-                    <input type="text" name="stock" class="form-control @error('stock') is-invalid @enderror" id="sotckInput" placeholder="stock disponible">
+                    <input type="text" value="{{ $product->stock }}"  name="stock" class="form-control @error('stock') is-invalid @enderror" id="sotckInput" placeholder="stock disponible">
                     @error('stock')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -78,7 +77,7 @@
 
                 <div class="form-group">
                     <label for="summernote">Description</label>
-                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="summernote" rows="4"></textarea>
+                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="summernote" rows="4">{{ $product->description }}</textarea>
                     @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -88,11 +87,11 @@
 
 
 
-                <div class="input-images"></div>
+                {{--<div class="input-images"></div> --}}
 
 
-                <button type="submit" class="btn btn-primary mr-2">Sauvgarder</button>
-                <button class="btn btn-light ha-rest-form" >Cancel</button>
+                <button type="submit" class="btn btn-success mr-2">Sauvgarder</button>
+                <a class="btn btn-light" href="{{ route("admin.index.product") }}" >Cancel</a>
             </form>
         </div>
     </div>
@@ -128,18 +127,28 @@
     <script type="text/javascript" src="{{ asset("adminPanel/vendors/image-uploader") }}/image-uploader.min.js"></script>
 
     <script>
-        $('.input-images').imageUploader();
+        let preloaded = [
+            @foreach($product->pictures as $pic)
+                {id: {{ $pic->id }}, src: '{{ asset("uploads/products/") ."/".$pic->name }}'},
+            @endforeach
+        ];
+        $('.input-images').imageUploader({
+            preloaded: preloaded,
+            preloadedInputName: 'old',
+            preloadedInputValue: preloaded
+        });
+
     </script>
 
     <script>
-        $(".ha-rest-form").on("click",function (e) {
+        /*$(".ha-rest-form").on("click",function (e) {
             e.preventDefault();
             $("[name='name']").val("");
             $("[name='description']").val("");
             $("[name='price']").val("");
             $("[name='discount']").val("");
             $("[name='stock']").val("");
-        })
+        }) */
     </script>
 
 

@@ -55,7 +55,6 @@
                                     @foreach($managers as $manager)
                                     <tr>
                                         <td class="py-1">
-                                            <img src="{{asset("uploads/managers/avatars" . $manager->picture)}}" alt="image"/>
                                             <img src="{{asset("uploads/managers/avatars/" . $manager->picture)}}" alt="image"/>
                                         </td>
                                         <td>
