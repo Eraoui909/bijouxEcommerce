@@ -186,7 +186,7 @@ class ProductController extends Controller
         return redirect()->route("admin.index.product")->with(["success" => "La visibilité de produit a été changer"]);
 
     }
-
+//hello
     public function searchProduct(Request $request){
         $title = trim($request->search_product);
         if(empty($title)){
