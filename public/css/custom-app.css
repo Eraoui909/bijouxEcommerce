@@ -1,0 +1,43 @@
+
+.absolute {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+    overflow: hidden;
+    background: #fff7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+    transition: all .4s ease;
+}
+
+.active-contact {
+    height: 100%;
+}
+
+span.close-abs {
+    position: absolute;
+    z-index: 102;
+    top: -3px;
+    right: 12px;
+    font-size: 2.5em;
+    color: #e3c5c5;
+    cursor: pointer;
+}
+
+.message-sent {
+    display: none;
+}
+
+/*div.show-contact-form {*/
+/*    position: fixed;*/
+/*    bottom: 18px;*/
+/*    left: 15px;*/
+/*    font-size: 2em;*/
+/*    !* box-shadow: 2px 2px 10px #ff9b9b; *!*/
+/*    padding: 0 10px;*/
+/*    cursor: pointer;*/
+/*}*/

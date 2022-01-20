@@ -42,7 +42,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-
         if(!$request->has("images")){
             return redirect()->back()->with(["error"=>"les photos sont obligatoire"]);
         }
@@ -52,28 +51,30 @@ class ProductController extends Controller
             "price" => "required|numeric",
             "discount" => "numeric",
             "stock" => "required|numeric",
-            "description" => "required",
-            'images'=>'required|file|image',
-
+            "description" => "required"
         ],
         [
             "name.required" => "Le nom de produit est obligatoire",
             "category_id.required" => "La catégorie de produit est obligatoire",
             "price.required" => "Le prix de produit est obligatoire",
             "stock.required" => "Le stock de produit est obligatoire",
-            "description.required" => "Le nom de produit est obligatoire",
+            "description.required" => "La description de produit est obligatoire",
         ]);
 
         $product = new Product();
-        $product->name =     $request->name;
-        $product->category_id =     $request->category_id;
-        $product->price =     $request->price;
-        $product->discount =     $request->discount;
-        $product->stock =     $request->stock;
-        $product->description =     $request->description;
+
+        $product->name         =     $request->name;
+        $product->category_id  =     $request->category_id;
+        $product->price        =     $request->price;
+        $product->discount     =     $request->discount;
+        $product->stock        =     $request->stock;
+        $product->description  =     $request->description;
         $product->published_by =     auth()->guard("admin")->id();
+
         $product->save();
+
         $pictures = UploadController::productPics($request);
+
         foreach ($pictures as $picture){
             $productPics = new ProductPictures();
             $productPics->name = $picture;

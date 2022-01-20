@@ -21,6 +21,9 @@
             <nav>
                 <ul class="secondary-nav g-nav">
                     <li>
+                        <a class="show-contact-form"><i class="far fa-paper-plane"></i> Contact Us</a>
+                    </li>
+                    <li>
                         <a>
                             Mon compte
                             <i class="fas fa-chevron-down u-s-m-l-9"></i>

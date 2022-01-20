@@ -29,3 +29,7 @@
 <script type="text/javascript" src="{{asset('template/')}}/js/owl.carousel.min.js"></script>
 <!-- Main -->
 <script type="text/javascript" src="{{asset('template/')}}/js/app.js"></script>
+<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+<!-- Contact page -->
+<script src="{{asset('template/')}}/js/jquery.validate.min.js" ></script>
+<script src="{{asset('template/')}}/js/contact.js" ></script>

@@ -8,6 +8,8 @@
 
 <!-- Base Google Font for Web-app -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+<!-- Base Google Font contact page -->
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 <!-- Google Fonts for Banners only -->
 <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
 <!-- Bootstrap 4 -->
@@ -26,3 +28,7 @@
 <link rel="stylesheet" href="{{asset('template/')}}/css/utility.css">
 <!-- Main -->
 <link rel="stylesheet" href="{{asset('template/')}}/css/bundle.css">
+<!-- contact page style -->
+<link rel="stylesheet" href="{{asset('template/')}}/css/contact.css">
+<!-- custom app style -->
+<link rel="stylesheet" href="{{asset('css/custom-app.css')}}">

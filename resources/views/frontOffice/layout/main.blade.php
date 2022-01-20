@@ -14,9 +14,11 @@
 
 
     <div class="ha-app">
-
+{{--        <div class="show-contact-form"><i class="far fa-paper-plane"></i><br><span>Contact Us</span></div>--}}
+        <div class="alert alert-success message-sent text-center">Votre message a ete envoye avec succes</div>
         @include('frontOffice.layout.includes.navbar')
         @include('frontOffice.layout.includes.header')
+        @include('frontOffice.layout.includes.contact')
 
         @yield('content-wrapper')
 
