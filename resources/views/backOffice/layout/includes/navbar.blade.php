@@ -78,6 +78,8 @@
                         Settings
                     </a>
                     <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit()">
+                        <i class="ti-power-off text-primary"></i>
+                        Logout
                     </a>
                     <form id="logoutForm1" method="GET" action="{{ route("admin.logout") }}">
                         @csrf
