@@ -28,25 +28,24 @@
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" href="{{ route("admin.index.category") }}">Les catégories</a></li>
-                </ul>
-            </div>
-            <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" href="{{ route("admin.create.category") }}">Ajouter catégorie</a></li>
                 </ul>
             </div>
+
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="icon-bar-graph menu-icon"></i>
-                <span class="menu-title">Charts</span>
+                <i class="icon-circle-cross menu-icon"></i>
+                <span class="menu-title">Produits</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">ChartJs</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route("admin.index.product") }}">Tous les produits</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route("admin.create.product") }}">Nouveau produit</a></li>
                 </ul>
             </div>
+
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">

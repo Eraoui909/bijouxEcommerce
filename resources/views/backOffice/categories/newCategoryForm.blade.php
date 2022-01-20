@@ -45,8 +45,6 @@
 
 @section("script")
     <script>
-
-
         $(".ha-rest-form").on("click",function (e) {
             e.preventDefault();
             $("[name='name']").val("");
