@@ -1,7 +1,7 @@
 @extends("backOffice.layout.panel")
 
 @section("style")
-    <link rel="stylesheet" href="{{asset("adminPanel")}}/vendors/mdi/css/materialdesignicons.min.css"">
+    <link rel="stylesheet" href="{{asset("adminPanel")}}/vendors/mdi/css/materialdesignicons.min.css">
     <style>
 
     </style>
@@ -56,6 +56,7 @@
                                     <tr>
                                         <td class="py-1">
                                             <img src="{{asset("uploads/managers/avatars" . $manager->picture)}}" alt="image"/>
+                                            <img src="{{asset("uploads/managers/avatars/" . $manager->picture)}}" alt="image"/>
                                         </td>
                                         <td>
                                             {{$manager->full_name}}
