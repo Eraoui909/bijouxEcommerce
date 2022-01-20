@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManagerController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +66,18 @@ Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
 
         });
         #################################   Editor Tasks Begin    ################################################################
+
+        #################################   Moderator Tasks Begin  ###############################################################
+
+            Route::prefix("products")->group(function (){
+
+                Route::get("/all-products",[ProductController::class,"index"])->name("index.product");
+                Route::get("/new-product",[ProductController::class,"create"])->name("create.product");
+                Route::post("/store-product",[ProductController::class,"store"])->name("store.product");
+            });
+
+        #################################   Moderator Tasks End    ###############################################################
+
 
     });
     #############################    Managers Tasks End    #######################################################################
