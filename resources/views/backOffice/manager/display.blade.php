@@ -9,6 +9,9 @@
 
 
 @section("content-wrapper")
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <div class="alert alert-success">{{ \Illuminate\Support\Facades\Session::get('success') }}</div>
+    @endif
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -52,7 +55,7 @@
                                     @foreach($managers as $manager)
                                     <tr>
                                         <td class="py-1">
-                                            <img src="{{asset("assets/uploads/managers/" . $manager->picture)}}" alt="image"/>
+                                            <img src="{{asset("uploads/managers/avatars" . $manager->picture)}}" alt="image"/>
                                         </td>
                                         <td>
                                             {{$manager->full_name}}

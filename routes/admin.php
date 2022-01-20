@@ -31,11 +31,16 @@ Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
     ############################## Managers Login Routes End #####################################################################
 
     #############################    Managers Tasks Begin    #####################################################################
-    Route::middleware("auth:admin")->namespace("Auth")->group(function () {
+    Route::middleware("auth:admin")->group(function () {
 
         Route::get("dashboard", [AdminController::Class, "index"])->name("dashboard");
         Route::get("management/categories", [CategoryController::Class, "index"])->name("index.category");
 
+        Route::get("profile", [ManagerController::Class, "profile"])->name("managers.profile");
+        Route::post("update/general", [ManagerController::Class, "updateGeneral"])->name("update.general");
+        Route::post("picture/reset", [ManagerController::Class, "resetPicture"])->name("picture.reset");
+        Route::post("picture/change", [ManagerController::Class, "changePicture"])->name("picture.change");
+        Route::post("changePass", [ManagerController::Class, "changePass"])->name("change_password");
 
         #################################   Super Admin Tasks Begin    ###########################################################
         Route::middleware(["auth:admin", "isSuper"])->prefix("managers")->group(function () {
