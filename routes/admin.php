@@ -74,6 +74,11 @@ Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
                 Route::get("/all-products",[ProductController::class,"index"])->name("index.product");
                 Route::get("/new-product",[ProductController::class,"create"])->name("create.product");
                 Route::post("/store-product",[ProductController::class,"store"])->name("store.product");
+                Route::get("/edit-product/{id}",[ProductController::class,"edit"])->name("edit.product");
+                Route::post("/update-product/{id}",[ProductController::class,"update"])->name("update.product");
+                Route::get("/destroy-product/{id}",[ProductController::class,"destroy"])->name("destroy.product");
+                Route::get("/visibility-product/{id}",[ProductController::class,"makeItVisible"])->name("visibility.product");
+                Route::get("/search-product",[ProductController::class,"searchProduct"])->name("search.product");
             });
 
         #################################   Moderator Tasks End    ###############################################################

@@ -10,6 +10,8 @@ class Product extends Model
 
     protected $guarded = ["id"];
 
+    protected $perPage = 5;
+
     public function scopeVisible($query){
         return $query->where("visibility",1);
     }
@@ -25,4 +27,5 @@ class Product extends Model
     public function publishedBy(){
         return $this->belongsTo(Manager::class);
     }
+
 }

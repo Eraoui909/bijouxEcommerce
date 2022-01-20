@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Manager;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +20,10 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('backOffice.dashboard');
+        $manager = Manager::select(["full_name"])->where("id",auth()->guard("admin")->id())->get();
+        $nbrClients = User::count();
+        $nbrProducts = Product::count();
+        return view('backOffice.dashboard')->with(["manager" => $manager,"nbrClients" => $nbrClients,"nbrProducts" => $nbrProducts]);
     }
 
     public function check(Request $request) {
