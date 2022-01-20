@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Helper;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
-use PhpParser\Node\Expr\Array_;
+
+
 
 class UploadController extends Controller
 {

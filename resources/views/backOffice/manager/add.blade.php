@@ -16,22 +16,47 @@
                                 <div class="form-group">
                                     <label for="fullname">Full Name</label>
                                     <input type="text" class="form-control" id="fullname" name="full_name" placeholder="Name">
+                                    @error('full_name')
+                                    <span class="invalid-feedback" style="display: block !important;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="Email">Email address</label>
                                     <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
+                                    @error('email')
+                                    <span class="invalid-feedback" style="display: block !important;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                    @error('password')
+                                    <span class="invalid-feedback" style="display: block !important;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <input type="text" class="form-control" id="address" name="address" placeholder="Addresse">
+                                    @error('address')
+                                    <span class="invalid-feedback" style="display: block !important;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="Phone">Phone</label>
                                     <input type="text" class="form-control" id="Phone" name="Phone" placeholder="Phone">
+                                    @error('Phone')
+                                    <span class="invalid-feedback" style="display: block !important;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>File upload</label>

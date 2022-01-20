@@ -1,7 +1,7 @@
 @extends("backOffice.layout.panel")
 
 @section("style")
-    <link rel="stylesheet" href="{{asset("adminPanel")}}/vendors/mdi/css/materialdesignicons.min.css"">
+    <link rel="stylesheet" href="{{asset("adminPanel")}}/vendors/mdi/css/materialdesignicons.min.css">
     <style>
 
     </style>
@@ -9,6 +9,9 @@
 
 
 @section("content-wrapper")
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <div class="alert alert-success">{{ \Illuminate\Support\Facades\Session::get('success') }}</div>
+    @endif
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -52,6 +55,7 @@
                                     @foreach($managers as $manager)
                                     <tr>
                                         <td class="py-1">
+                                            <img src="{{asset("uploads/managers/avatars" . $manager->picture)}}" alt="image"/>
                                             <img src="{{asset("uploads/managers/avatars/" . $manager->picture)}}" alt="image"/>
                                         </td>
                                         <td>
