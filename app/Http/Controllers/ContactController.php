@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+
+    public function inbox () {
+
+        $messages = Contact::all();
+        return view("backOffice.inbox", compact("messages"));
+    }
+
     public function send (Request $request) {
         $request->validate(
             [
@@ -32,6 +39,23 @@ class ContactController extends Controller
             "subject"      => $request->subject,
             "message"      => $request->message,
         ]);
+        return "ok";
+    }
+
+    public function delete(Request $request)
+    {
+        $manager = Contact::find($request->input("id"));
+        $manager->delete();
+
+        return "ok";
+    }
+
+    public function setRead(Request $request)
+    {
+        $manager = Contact::find($request->input("id"));
+        $manager->state = 1;
+        $manager->update();
+
         return "ok";
     }
 }
