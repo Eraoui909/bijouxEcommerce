@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
-class newsletter extends Command
+class Newsletter extends Command
 {
     /**
      * The name and signature of the console command.
@@ -42,5 +42,6 @@ class newsletter extends Command
         foreach ($emails as $email) {
             Mail::to($email)->send(new \App\Mail\newsletter());
         }
+        return 0;
     }
 }
