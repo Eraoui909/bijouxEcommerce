@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Product::with(["pictures","category"])->get();
+        /* echo "<pre>";
+            print_r($products[0]->pictures[0]->name);
+        echo "</pre>";
+        die(); */
+        return view('frontOffice.store')->with(["products" => $products]);
     }
 }
