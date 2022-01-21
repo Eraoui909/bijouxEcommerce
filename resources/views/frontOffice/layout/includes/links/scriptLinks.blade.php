@@ -27,6 +27,8 @@
 <script type="text/javascript" src="{{asset('template/')}}/js/jquery.custom-countdown.min.js"></script>
 <!-- Owl Carousel -->
 <script type="text/javascript" src="{{asset('template/')}}/js/owl.carousel.min.js"></script>
+<!-- sweetalert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Main -->
 <script type="text/javascript" src="{{asset('template/')}}/js/app.js"></script>
 <script type="text/javascript" src="{{asset('js/main.js')}}"></script>

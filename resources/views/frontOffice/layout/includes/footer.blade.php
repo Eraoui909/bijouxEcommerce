@@ -12,10 +12,11 @@
             <p>
                 Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.
             </p>
-            <form class="newsletter-form">
+            <form method="POST" action="{{route("newsletter")}}" class="newsletter-form">
+                @csrf
                 <label class="sr-only" for="newsletter-field">Enter your Email</label>
-                <input type="text" id="newsletter-field" placeholder="Your Email Address">
-                <button type="submit" class="button">SUBMIT</button>
+                <input type="email" name="email" id="newsletter-field" placeholder="Your Email Address">
+                <button type="submit" class="button news-subscribe">SUBMIT</button>
             </form>
         </div>
         <!-- Outer-Footer /- -->

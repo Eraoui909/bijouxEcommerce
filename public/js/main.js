@@ -10,3 +10,42 @@ function toggleContact(e) {
 show_contact_form.addEventListener("click", toggleContact);
 close_abs.addEventListener("click", toggleContact);
 
+
+// ######################################## newsletter begin ############################################
+
+
+$(".news-subscribe").on("click",function (e) {
+    e.preventDefault();
+
+    let data = $("form.newsletter-form").serialize();
+
+    $.ajax("/newsletter",{
+        type: "post",
+        data: data,
+        success: function (data) {
+            if(data === "ok"){
+                Swal.fire(
+                    'Inscrit!',
+                    'Votre catégorie a été supprimée.',
+                    'success'
+                )
+            }else if(data === "required"){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "le champs email est obligatoire pour s'inscrire!",
+                })
+            }else if(data === "exists"){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "cet utilisateur est deja inscrit!",
+                })
+            }
+        },
+    });
+
+})
+
+// ########################################  newsletter end #############################################
+

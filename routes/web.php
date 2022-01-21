@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Auth::routes();
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/home', [HomeController::class, "index"])->name('home');
 Route::post('/contact', [ContactController::class, "send"])->name('contact');
+
+Route::post('/newsletter', [NewsletterController::class, "subscribe"])->name('newsletter');
