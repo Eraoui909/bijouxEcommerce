@@ -10,7 +10,7 @@ class ContactController extends Controller
 
     public function inbox () {
 
-        $messages = Contact::paginate(10);
+        $messages = Contact::paginate(1);
         return view("backOffice.inbox", compact("messages"));
     }
 
