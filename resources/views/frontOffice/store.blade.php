@@ -82,7 +82,7 @@
                                                 <div class="owl-item active" style="width: 277.5px;">
                                                     <div class="item">
                                                         <div class="image-container">
-                                                            <a class="item-img-wrapper-link" href="#">
+                                                            <a class="item-img-wrapper-link" href="{{ route("single.product",["id" => $product->id]) }}">
                                                                 <img class="img-fluid" src="{{asset("/uploads/products/")}}/{{$product->pictures[0]->name}}" alt="Product">
                                                             </a>
                                                             <div class="item-action-behaviors">
@@ -101,7 +101,7 @@
                                                                     </li>
                                                                 </ul>
                                                                 <h6 class="item-title">
-                                                                    <a href="#">{{ substr($product->name,0,46) }}</a>
+                                                                    <a href="{{ route("single.product",["id" => $product->id]) }}">{{ substr($product->name,0,46) }}</a>
                                                                 </h6>
                                                                 <div class="item-stars">
                                                                     <div class="star" title="0 out of 5 - based on 0 Reviews">
