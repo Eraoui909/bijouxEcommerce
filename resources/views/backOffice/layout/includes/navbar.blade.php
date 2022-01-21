@@ -22,6 +22,60 @@
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                    <i class="far fa-comment"></i>
+                    <span class="count"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                    <p class="mb-0 font-weight-normal float-left dropdown-header">messages</p>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon">
+                                <img src="{{asset("uploads/managers/avatars/avatar.png")}}" alt="">
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Zaim Achraf</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                my first messsage subject
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon">
+                                <img src="{{asset("uploads/managers/avatars/avatar.png")}}" alt="">
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Zaim Achraf</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                my first messsage subject
+                            </p>
+                        </div>
+                    </a>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon">
+                                <img src="{{asset("uploads/managers/avatars/avatar.png")}}" alt="">
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-normal">Zaim Achraf</h6>
+                            <p class="font-weight-light small-text mb-0 text-muted">
+                                my first messsage subject
+                            </p>
+                        </div>
+                    </a>
+                    <hr>
+                    <a style="margin-top: -10px;" class="dropdown-item preview-item" href="">
+                        <div class="preview-item-content text-center">
+                            afficher tous les messages
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                     <i class="icon-bell mx-0"></i>
                     <span class="count"></span>
                 </a>
