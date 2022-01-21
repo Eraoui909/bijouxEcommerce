@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::with(["pictures","category"])->get();
+        $products = Product::with(["pictures","category"])->limit(7)->get();
         /* echo "<pre>";
             print_r($products[0]->pictures[0]->name);
         echo "</pre>";

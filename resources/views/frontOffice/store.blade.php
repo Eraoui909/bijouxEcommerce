@@ -112,7 +112,7 @@
                                                             </div>
                                                             <div class="price-template">
                                                                 <div class="item-new-price">
-                                                                    {{ ($product->price*$product->discount)/100 }} MAD
+                                                                    {{ $product->price - (($product->price*$product->discount)/100) }} MAD
                                                                 </div>
                                                                 <div class="item-old-price">
                                                                     {{ $product->price }} MAD
