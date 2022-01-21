@@ -284,13 +284,13 @@ body {
   height: 506px; }
 
 .one {
-  background-image: url(../images/main-slider/1.jpg); }
+  background-image: url(../images/main-slider/banner-1.jpg); }
 
 .two {
-  background-image: url(../images/main-slider/1.jpg); }
+  background-image: url(../images/main-slider/banner-2.jpg); }
 
 .three {
-  background-image: url(../images/main-slider/1.jpg); }
+  background-image: url(../images/main-slider/banner-5.jpg); }
 
 .owl-item .slide-animation * {
   animation-duration: 1s;

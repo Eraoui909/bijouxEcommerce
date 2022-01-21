@@ -12,25 +12,47 @@
 
 
 
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1519px, 0px, 0px); transition: all 0.25s ease 0s; width: 4558px;"><div class="owl-item" style="width: 1519.2px;"><div class="bg-image one">
-                            <div class="slide-content slide-animation">
-                                <h1>Casual Clothing</h1>
-                                <h2>lifestyle / clothing / hype</h2>
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(-1519px, 0px, 0px); transition: all 0.25s ease 0s; width: 4558px;">
+                    <div class="owl-item" style="width: 1519.2px;">
+                        <div class="bg-image one">
+                             <div class="slide-content slide-animation">
+                                <h1>Bijoux fantastiques</h1>
+                                <h2></h2>
                             </div>
-                        </div></div><div class="owl-item active" style="width: 1519.2px;"><div class="bg-image two">
-                            <div class="slide-content-2 slide-animation">
-                                <h2 class="slide-2-h2-a">Hiking</h2>
-                                <h2 class="slide-2-h2-b">Collection</h2>
-                                <h1>2018</h1>
+                        </div>
+                    </div>
+                    <div class="owl-item active" style="width: 1519.2px;">
+                        <div class="bg-image two">
+                             <div class="slide-content-2 slide-animation">
+                                <h2 class="slide-2-h2-a">Bijoux</h2>
+                                <h2 class="slide-2-h2-b">fantastiques</h2>
+                                <h1>2022</h1>
                             </div>
-                        </div></div><div class="owl-item" style="width: 1519.2px;"><div class="bg-image three">
-                            <div class="slide-content slide-animation">
-                                <h1>Tech
-                                    <span style="color:#333">Deals</span>
+                        </div>
+                    </div>
+                    <div class="owl-item" style="width: 1519.2px;">
+                        <div class="bg-image three">
+                             <div class="slide-content slide-animation">
+                                <h1>Bijoux
+                                    <span style="color:#333">fantastiques</span>
                                 </h1>
                                 <h2 style="color:#333"># shopping</h2>
                             </div>
-                        </div></div></div></div><div class="owl-nav"><div class="main-slider-previous"><i class="fas fa-angle-left"></i></div><div class="main-slider-next"><i class="fas fa-angle-right"></i></div></div><div class="owl-dots disabled"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-nav">
+                <div class="main-slider-previous"><i class="fas fa-angle-left"></i>
+                </div>
+                <div class="main-slider-next"><i class="fas fa-angle-right"></i>
+                </div>
+            </div>
+            <div class="owl-dots disabled">
+
+            </div>
+        </div>
     </div>
     <!-- Main-Slider -->
 
@@ -477,19 +499,6 @@
         </div>
     </section>
     <!-- Last Products -->
-
-
-    <!-- Banner -->
-    <div class="banner-layer">
-        <div class="container">
-            <div class="image-banner">
-                <a href="#" class="mx-auto banner-hover effect-dark-opacity">
-                    <img class="img-fluid" src="{{asset("/template/")}}/images/banners/bannerlayer-1.jpg" alt="Winter Season Banner">
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Banner -->
 
 
     <!-- All products -->
