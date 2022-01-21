@@ -1,3 +1,5 @@
+
+
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
@@ -23,49 +25,33 @@
             <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                     <i class="far fa-comment"></i>
-                    <span class="count"></span>
+                    <span class="count" style="
+                    left: 70%;
+                    height: fit-content;
+                    width: 18px;
+                    font-size: 10px;
+                    color: #fff;
+                    font-weight: bold;">{{ $nbrMessageNoVu }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                     <p class="mb-0 font-weight-normal float-left dropdown-header">messages</p>
-                    <a class="dropdown-item preview-item">
+
+                    @foreach($messages as $msg)
+                        <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon">
                                 <img src="{{asset("uploads/managers/avatars/avatar.png")}}" alt="">
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">Zaim Achraf</h6>
+                            <h6 class="preview-subject font-weight-normal">{{$msg->full_name}}</h6>
                             <p class="font-weight-light small-text mb-0 text-muted">
-                                my first messsage subject
+                                {{ $msg->subject }}
                             </p>
                         </div>
                     </a>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon">
-                                <img src="{{asset("uploads/managers/avatars/avatar.png")}}" alt="">
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">Zaim Achraf</h6>
-                            <p class="font-weight-light small-text mb-0 text-muted">
-                                my first messsage subject
-                            </p>
-                        </div>
-                    </a>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon">
-                                <img src="{{asset("uploads/managers/avatars/avatar.png")}}" alt="">
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">Zaim Achraf</h6>
-                            <p class="font-weight-light small-text mb-0 text-muted">
-                                my first messsage subject
-                            </p>
-                        </div>
-                    </a>
+                    @endforeach
+
                     <hr>
                     <a style="margin-top: -10px;" class="dropdown-item preview-item" href="">
                         <div class="preview-item-content text-center">
