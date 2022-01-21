@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,10 @@ Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
         Route::post("picture/reset", [ManagerController::Class, "resetPicture"])->name("picture.reset");
         Route::post("picture/change", [ManagerController::Class, "changePicture"])->name("picture.change");
         Route::post("changePass", [ManagerController::Class, "changePass"])->name("change_password");
+
+        Route::get("inbox", [ContactController::Class, "inbox"])->name("inbox");
+        Route::post("message/delete", [ContactController::Class, "delete"])->name("message.delete");
+        Route::post("message/setRead", [ContactController::Class, "setRead"])->name("message.setRead");
 
         #################################   Super Admin Tasks Begin    ###########################################################
         Route::middleware(["auth:admin", "isSuper"])->prefix("managers")->group(function () {
