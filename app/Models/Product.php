@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $perPage = 5;
 
-    public function scopeVisible($query){
+    public static function scopeVisible($query){
         return $query->where("visibility",1);
     }
 

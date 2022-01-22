@@ -24,11 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::with(["pictures","category"])->limit(7)->get();
-        /* echo "<pre>";
-            print_r($products[0]->pictures[0]->name);
-        echo "</pre>";
-        die(); */
+        $products = Product::with(["pictures","category"])->where("visibility",1)->limit(7)->get();
+
         return view('frontOffice.store')->with(["products" => $products]);
+    }
+
+    public function singleProduct($id){
+
+        $product = Product::with(["pictures","category"])->find($id);
+        return view('frontOffice.singleProduct')->with(["product" => $product]);
     }
 }

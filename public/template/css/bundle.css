@@ -2078,7 +2078,7 @@ body {
   margin: 0 auto;
   max-width: 580px;
   overflow: hidden; }
-  .newsletter-form input[type=text] {
+  .newsletter-form input[type=email] {
     display: block;
     width: 100%;
     height: 60px;

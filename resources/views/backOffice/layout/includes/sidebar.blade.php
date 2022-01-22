@@ -50,12 +50,12 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                 <i class="icon-grid-2 menu-icon"></i>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Inbox</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="tables">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Basic table</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route("admin.inbox") }}">Tous les messages</a></li>
                 </ul>
             </div>
         </li>

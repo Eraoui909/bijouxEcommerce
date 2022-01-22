@@ -15,9 +15,10 @@
             <form method="POST" action="{{route("newsletter")}}" class="newsletter-form">
                 @csrf
                 <label class="sr-only" for="newsletter-field">Enter your Email</label>
-                <input type="email" name="email" id="newsletter-field" placeholder="Your Email Address">
+                <input type="email" name="email" required id="newsletter-field" placeholder="Your Email Address">
                 <button type="submit" class="button news-subscribe">SUBMIT</button>
             </form>
+
         </div>
         <!-- Outer-Footer /- -->
         <!-- Mid-Footer -->

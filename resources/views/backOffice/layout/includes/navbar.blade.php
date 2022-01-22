@@ -53,7 +53,7 @@
                     @endforeach
 
                     <hr>
-                    <a style="margin-top: -10px;" class="dropdown-item preview-item" href="{{route("admin.inbox")}}">
+                    <a style="margin-top: -10px;" class="dropdown-item preview-item" href="{{ route("admin.inbox") }}">
                         <div class="preview-item-content text-center">
                             afficher tous les messages
                         </div>

@@ -4,8 +4,6 @@
 @section("title","Inbox")
 
 @section("style")
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="{{asset("css/admin/inbox.css")}}">
 @endsection
 
@@ -126,7 +124,7 @@
                                 row.parent().hide();
                                 Swal.fire(
                                     'Supprimé!',
-                                    'Votre catégorie a été supprimée.',
+                                    'Le message a été supprimée.',
                                     'success'
                                 )
                             }else{
