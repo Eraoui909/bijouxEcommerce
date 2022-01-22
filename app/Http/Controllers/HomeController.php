@@ -32,6 +32,9 @@ class HomeController extends Controller
     public function singleProduct($id){
 
         $product = Product::with(["pictures","category"])->find($id);
+        if(empty($product)){
+            return redirect()->route("home");
+        }
         return view('frontOffice.singleProduct')->with(["product" => $product]);
     }
 }

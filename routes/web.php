@@ -27,3 +27,4 @@ Route::post('/contact', [ContactController::class, "send"])->name('contact');
 Route::post('/newsletter', [NewsletterController::class, "subscribe"])->name('newsletter');
 
 Route::get('/product/{id}', [HomeController::class, "singleProduct"])->name('single.product');
+
