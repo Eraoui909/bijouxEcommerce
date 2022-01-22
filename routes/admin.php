@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManagerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +48,10 @@ Route::namespace("Admin")->prefix("admin")->name("admin.")->group(function () {
         Route::get("inbox", [ContactController::Class, "inbox"])->name("inbox");
         Route::post("message/delete", [ContactController::Class, "delete"])->name("message.delete");
         Route::post("message/setRead", [ContactController::Class, "setRead"])->name("message.setRead");
+
+        Route::get("newsletter", [NewsletterController::Class, "display"])->name("newsletter");
+        Route::post("newsletter/changeState", [NewsletterController::Class, "changeState"])->name("newsletter.changeState");
+
 
         #################################   Super Admin Tasks Begin    ###########################################################
         Route::middleware(["auth:admin", "isSuper"])->prefix("managers")->group(function () {
