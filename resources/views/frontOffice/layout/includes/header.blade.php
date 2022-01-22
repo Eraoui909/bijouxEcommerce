@@ -31,7 +31,7 @@
                         </a>
                         <ul class="g-dropdown" style="width:200px">
                             <li>
-                                <a href="cart.html">
+                                <a href="{{ route("cart.index") }}">
                                     <i class="fas fa-cog u-s-m-r-9"></i>
                                     My Cart</a>
                             </li>
@@ -101,7 +101,7 @@
             <div class="row clearfix align-items-center">
                 <div class="col-lg-3 col-md-9 col-sm-6">
                     <div class="brand-logo text-lg-center">
-                        <a href="home.html">
+                        <a href="{{ route("home") }}">
                             <img src="{{asset("template")}}/images/main-logo/groover-branding-1.png" alt="Groover Brand Logo" class="app-brand-logo">
                         </a>
                     </div>
@@ -129,7 +129,7 @@
                     <nav>
                         <ul class="mid-nav g-nav">
                             <li class="u-d-none-lg">
-                                <a href="home.html">
+                                <a href="{{ route("home") }}">
                                     <i class="ion ion-md-home u-c-brand"></i>
                                 </a>
                             </li>
@@ -141,8 +141,8 @@
                             <li>
                                 <a id="mini-cart-trigger">
                                     <i class="ion ion-md-basket"></i>
-                                    <span class="item-counter">4</span>
-                                    <span class="item-price">$220.00</span>
+                                    <span class="item-counter">{{ $nbProduct }}</span>
+                                    <span class="item-price">{{ $totalPrice }} MAD</span>
                                 </a>
                             </li>
                         </ul>
@@ -173,42 +173,21 @@
                 <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
             </div>
             <ul class="mini-cart-list">
-                <li class="clearfix">
+                @foreach($cartItems as $item)
+                    <li class="clearfix">
                     <a href="single-product.html">
                         <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
-                        <span class="mini-item-name">Casual Hoodie Full Cotton</span>
-                        <span class="mini-item-price">$55.00</span>
-                        <span class="mini-item-quantity"> x 1 </span>
+                        <span class="mini-item-name">{{ $item["name"] }}</span>
+                        <span class="mini-item-price">{{ ($item["price"] - ($item["price"]*$item["discount"])/100 ) }} MAD</span>
+                        <span class="mini-item-quantity"> x {{ $item["quantity"] }} </span>
                     </a>
                 </li>
-                <li class="clearfix">
-                    <a href="single-product.html">
-                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
-                        <span class="mini-item-name">Black Rock Dress with High Jewelery Necklace</span>
-                        <span class="mini-item-price">$55.00</span>
-                        <span class="mini-item-quantity"> x 1 </span>
-                    </a>
-                </li>
-                <li class="clearfix">
-                    <a href="single-product.html">
-                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
-                        <span class="mini-item-name">Xiaomi Note 2 Black Color</span>
-                        <span class="mini-item-price">$55.00</span>
-                        <span class="mini-item-quantity"> x 1 </span>
-                    </a>
-                </li>
-                <li class="clearfix">
-                    <a href="single-product.html">
-                        <img src="{{asset("template")}}/images/product/product@1x.jpg" alt="Product">
-                        <span class="mini-item-name">Dell Inspiron 15</span>
-                        <span class="mini-item-price">$55.00</span>
-                        <span class="mini-item-quantity"> x 1 </span>
-                    </a>
-                </li>
+                @endforeach
+
             </ul>
             <div class="mini-shop-total clearfix">
                 <span class="mini-total-heading float-left">Total:</span>
-                <span class="mini-total-price float-right">$220.00</span>
+                <span class="mini-total-price float-right">{{ $totalPrice }} MAD</span>
             </div>
             <div class="mini-action-anchors">
                 <a href="cart.html" class="cart-anchor">View Cart</a>

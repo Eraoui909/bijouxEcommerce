@@ -142,11 +142,17 @@
             </div>
         </div>
         <div class="section-6-social-media-quantity-actions u-s-p-y-14">
-            <form action="#" class="post-form">
+            <form action="{{ route("cart.store") }}" method="POST" class="post-form">
+                @csrf
+                <input type="hidden" name="product" value="{{ $product->id }}">
+                <input type="hidden" name="name" value="{{ $product->name }}">
+                <input type="hidden" name="price" value="{{ $product->price }}">
+                <input type="hidden" name="discount" value="{{ $product->discount }}">
+                <input type="hidden" name="stock" value="{{ $product->discount }}">
                 <div class="quantity-wrapper u-s-m-b-22">
                     <span>Quantity:</span>
                     <div class="quantity">
-                        <input type="text" class="quantity-text-field" value="1">
+                        <input type="text" name="quantity" class="quantity-text-field" value="1">
                         <a class="plus-a" data-max="{{ ceil($product->stock) }}">+</a>
                         <a class="minus-a" data-min="1">-</a>
                     </div>

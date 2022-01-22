@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
@@ -28,3 +29,9 @@ Route::post('/newsletter', [NewsletterController::class, "subscribe"])->name('ne
 
 Route::get('/product/{id}', [HomeController::class, "singleProduct"])->name('single.product');
 
+
+Route::prefix("cart")->name("cart.")->group(function (){
+    Route::get("/", [CartController::class,"index"])->name("index");
+    Route::post("/add-to-cart", [CartController::class,"store"])->name("store");
+    Route::get("/delete-from-cart/{id}", [CartController::class,"destroy"])->name("destroy");
+});
