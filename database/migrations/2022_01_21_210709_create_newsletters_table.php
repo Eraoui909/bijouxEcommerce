@@ -16,6 +16,7 @@ class CreateNewslettersTable extends Migration
         Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
             $table->string("email");
+            $table->tinyInteger("state")->default(1); // 1: enable; 2: disable
             $table->timestamps();
         });
     }
