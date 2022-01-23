@@ -39,9 +39,17 @@ class HomeController extends Controller
             ]);
         }
 
+<<<<<<< HEAD
         $favorite->products()->attach($productID);
 
         return "ok";
+=======
+        $product = Product::with(["pictures","category"])->find($id);
+        if(empty($product)){
+            return redirect()->route("home");
+        }
+        return view('frontOffice.singleProduct')->with(["product" => $product]);
+>>>>>>> ec2ab34601180133ca38cb7a64cab86de0945c3f
     }
 
 

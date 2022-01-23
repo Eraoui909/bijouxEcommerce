@@ -47,14 +47,25 @@
                 <div class="product-item col-lg-3 col-md-6 col-sm-6">
                 <div class="item">
                     <div class="image-container">
-                        <a class="item-img-wrapper-link" href="#">
+                        <a class="item-img-wrapper-link" href="{{ route("single.product",["id" => $product->id]) }}">
                             <img class="img-fluid" src="{{asset("/uploads/products/")}}/{{ $product->pictures[0]->name }}" alt="Product">
                         </a>
                         <div class="item-action-behaviors">
                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                            <form action="{{ route("cart.store") }}" id="my_form" method="POST" class="post-form">
+                                @csrf
+                                <input type="hidden" name="product" value="{{ $product->id }}">
+                                <input type="hidden" name="name" value="{{ $product->name }}">
+                                <input type="hidden" name="price" value="{{ $product->price }}">
+                                <input type="hidden" name="discount" value="{{ $product->discount }}">
+                                <input type="hidden" name="stock" value="{{ $product->discount }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <a class="item-addCart" onclick="document.getElementById('my_form').submit();" href="#">
+                                    Add to Cart
+                                </a>
+                            </form>
                         </div>
                     </div>
                     <div class="item-content">
@@ -66,7 +77,7 @@
 
                             </ul>
                             <h6 class="item-title">
-                                <a href="#">{{ substr($product->name,0,46) }}</a>
+                                <a href="{{ route("single.product",["id" => $product->id]) }}">{{ substr($product->name,0,46) }}</a>
                             </h6>
 
                             <div class="item-stars">

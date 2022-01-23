@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChackOutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
@@ -27,4 +29,19 @@ Route::post('/contact', [ContactController::class, "send"])->name('contact');
 Route::post('/newsletter', [NewsletterController::class, "subscribe"])->name('newsletter');
 
 Route::get('/product/{id}', [HomeController::class, "singleProduct"])->name('single.product');
+<<<<<<< HEAD
 Route::get('/addToFavorite/{id}', [HomeController::class, "addToFavorite"])->name('favorite.add');
+=======
+
+
+Route::prefix("cart")->name("cart.")->group(function (){
+    Route::get("/", [CartController::class,"index"])->name("index");
+    Route::post("/add-to-cart", [CartController::class,"store"])->name("store");
+    Route::get("/delete-from-cart/{id}", [CartController::class,"destroy"])->name("destroy");
+});
+
+Route::prefix("checkout")->name("checkout.")->group(function (){
+    Route::get("/", [ChackOutController::class,"index"])->name("index");
+    Route::post("/order", [ChackOutController::class,"makeOrder"])->name("order");
+});
+>>>>>>> ec2ab34601180133ca38cb7a64cab86de0945c3f
