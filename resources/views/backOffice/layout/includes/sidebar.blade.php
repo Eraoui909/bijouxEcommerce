@@ -60,16 +60,10 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <i class="icon-contract menu-icon"></i>
-                <span class="menu-title">Icons</span>
-                <i class="menu-arrow"></i>
+            <a class="nav-link" href="{{route("admin.newsletter")}}" >
+                <i class="menu-icon fas fa-mail-bulk"></i>
+                <span class="menu-title">Newsletter</span>
             </a>
-            <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                </ul>
-            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -100,12 +94,11 @@
         <li class="nav-item">
 
             <a class="nav-link" onclick="document.getElementById('logoutForm').submit()" href="#">
-                <i class="icon-paper menu-icon"></i>
+                <i class="fas fa-sign-out-alt menu-icon"></i>
                 <span class="menu-title">Logout</span>
             </a>
             <form id="logoutForm" method="GET" action="{{ route("admin.logout") }}">
                 @csrf
-                <i class="fas fa-sign-out-alt u-s-m-r-9 menu-icone"></i>
             </form>
         </li>
     </ul>

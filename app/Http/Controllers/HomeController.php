@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,19 @@ class HomeController extends Controller
         return view('frontOffice.store')->with(["products" => $products]);
     }
 
-    public function singleProduct($id){
+    public function addToFavorite($productID)
+    {
+        $favorite = Favory::where("user_id", auth()->user()->id)->first();
+        if (is_null($favorite)) {
+            $favorite = Favory::create([
+                "user_id" => auth()->user()->id
+            ]);
+        }
 
-        $product = Product::with(["pictures","category"])->find($id);
-        return view('frontOffice.singleProduct')->with(["product" => $product]);
+        $favorite->products()->attach($productID);
+
+        return "ok";
     }
+
+
 }

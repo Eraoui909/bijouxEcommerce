@@ -49,3 +49,35 @@ $(".news-subscribe").on("click",function (e) {
 
 // ########################################  newsletter end #############################################
 
+// ######################################## favorite begin ############################################
+
+
+$(".add-to-favorite").on("click",function (e) {
+    e.preventDefault();
+
+    let id = $(this).attr("data-id");
+
+    $.ajax("/addToFavorite/" + id,{
+        type: "get",
+        data: data,
+        success: function (data) {
+            if(data === "ok"){
+                Swal.fire(
+                    'Ajouté!',
+                    'Ce produit a été ajouté aux favoris.',
+                    'success'
+                )
+            }else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "Merci de ressayer plus tard!",
+                })
+            }
+        },
+    });
+
+})
+
+// ########################################  favorite end #############################################
+
