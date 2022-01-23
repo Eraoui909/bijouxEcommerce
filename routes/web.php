@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChackOutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
@@ -34,4 +35,9 @@ Route::prefix("cart")->name("cart.")->group(function (){
     Route::get("/", [CartController::class,"index"])->name("index");
     Route::post("/add-to-cart", [CartController::class,"store"])->name("store");
     Route::get("/delete-from-cart/{id}", [CartController::class,"destroy"])->name("destroy");
+});
+
+Route::prefix("checkout")->name("checkout.")->group(function (){
+    Route::get("/", [ChackOutController::class,"index"])->name("index");
+    Route::post("/order", [ChackOutController::class,"makeOrder"])->name("order");
 });

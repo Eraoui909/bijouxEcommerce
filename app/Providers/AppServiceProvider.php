@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
             $totalPrice = 0;
             $nbProduct = count($cartItems);
             foreach ($cartItems as $item){
-                $totalPrice += ($item["price"] - ($item["price"]*$item["discount"])/100 );
+                $totalPrice += ($item["price"] - ($item["price"]*$item["discount"])/100 ) * $item["quantity"];
             }
             $view->with(['categories' => $categories, "totalPrice" => $totalPrice, "nbProduct" => $nbProduct,"cartItems" => $cartItems ]);
         });

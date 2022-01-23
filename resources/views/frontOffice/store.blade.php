@@ -90,7 +90,18 @@
                                                                 </a>
                                                                 <a class="item-mail" href="javascript:void(0)">Mail</a>
                                                                 <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                                                <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                                                <form action="{{ route("cart.store") }}" id="my_form" method="POST" class="post-form">
+                                                                    @csrf
+                                                                    <input type="hidden" name="product" value="{{ $product->id }}">
+                                                                    <input type="hidden" name="name" value="{{ $product->name }}">
+                                                                    <input type="hidden" name="price" value="{{ $product->price }}">
+                                                                    <input type="hidden" name="discount" value="{{ $product->discount }}">
+                                                                    <input type="hidden" name="stock" value="{{ $product->discount }}">
+                                                                    <input type="hidden" name="quantity" value="1">
+                                                                    <a class="item-addCart" onclick="document.getElementById('my_form').submit();" href="#">
+                                                                        Add to Cart
+                                                                    </a>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                         <div class="item-content">
@@ -509,3 +520,8 @@
 
 
 @endsection
+
+
+@push("scripts")
+
+@endpush

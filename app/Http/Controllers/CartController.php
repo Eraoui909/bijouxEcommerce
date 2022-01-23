@@ -18,7 +18,7 @@ class CartController extends Controller
         $cartItems = session()->get("cartItems") ?? [];
         $totalPrice = 0;
         foreach ($cartItems as $item){
-            $totalPrice += ($item["price"] - ($item["price"]*$item["discount"])/100 );
+            $totalPrice += ($item["price"] - ($item["price"]*$item["discount"])/100 ) * $item["quantity"];
         }
 
         return view("frontOffice.cart")->with(["cartItems" => $cartItems,"totalPrice" => $totalPrice]);
