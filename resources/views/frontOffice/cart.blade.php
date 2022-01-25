@@ -1,6 +1,5 @@
 @extends('frontOffice.layout.main')
 
-
 @section('title','Cart')
 
 @section("styles")

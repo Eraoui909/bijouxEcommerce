@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChackOutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Auth;
@@ -29,9 +30,11 @@ Route::post('/contact', [ContactController::class, "send"])->name('contact');
 Route::post('/newsletter', [NewsletterController::class, "subscribe"])->name('newsletter');
 
 Route::get('/product/{id}', [HomeController::class, "singleProduct"])->name('single.product');
-<<<<<<< HEAD
-Route::get('/addToFavorite/{id}', [HomeController::class, "addToFavorite"])->name('favorite.add');
-=======
+
+
+Route::get('/favorites', [FavoriteController::class, "index"])->name('favorite.all');
+Route::get('/addToFavorite/{id}', [FavoriteController::class, "addToFavorite"])->name('favorite.add');
+Route::get('/deleteFromFavorite/{id}', [FavoriteController::class, "deleteFromFavorite"])->name('favorite.delete');
 
 
 Route::prefix("cart")->name("cart.")->group(function (){
@@ -44,4 +47,3 @@ Route::prefix("checkout")->name("checkout.")->group(function (){
     Route::get("/", [ChackOutController::class,"index"])->name("index");
     Route::post("/order", [ChackOutController::class,"makeOrder"])->name("order");
 });
->>>>>>> ec2ab34601180133ca38cb7a64cab86de0945c3f

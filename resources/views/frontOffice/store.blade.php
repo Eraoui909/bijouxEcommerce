@@ -89,7 +89,8 @@
                                                                 <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                                                 </a>
                                                                 <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                                <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                                                <a class="item-addwishlist add-to-favorite" data-id="{{$product->id}}">Add to Wishlist</a>
+                                                                <a class="item-addwishlist delete-from-favorite" style="display: none; background: var(--maincolor);" data-id="{{$product->id}}">Add to Wishlist</a>
                                                                 <form action="{{ route("cart.store") }}" id="my_form" method="POST" class="post-form">
                                                                     @csrf
                                                                     <input type="hidden" name="product" value="{{ $product->id }}">

@@ -56,10 +56,11 @@ $(".add-to-favorite").on("click",function (e) {
     e.preventDefault();
 
     let id = $(this).attr("data-id");
+    let item = this;
 
     $.ajax("/addToFavorite/" + id,{
         type: "get",
-        data: data,
+        data: id,
         success: function (data) {
             if(data === "ok"){
                 Swal.fire(
@@ -67,6 +68,47 @@ $(".add-to-favorite").on("click",function (e) {
                     'Ce produit a été ajouté aux favoris.',
                     'success'
                 )
+
+                item.style.display = "none";
+                document.querySelector(".delete-from-favorite").style.display = "block";
+            }else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "Merci de ressayer plus tard!",
+                })
+            }
+        },
+    });
+
+})
+
+$(".delete-from-favorite").on("click",function (e) {
+    e.preventDefault();
+
+    let id = $(this).attr("data-id");
+    let item = this;
+
+    // console.log(item.parentElement.parentElement.parentElement);
+    // return;
+
+    $.ajax("/deleteFromFavorite/" + id,{
+        type: "get",
+        data: id,
+        success: function (data) {
+            if(data === "ok"){
+                Swal.fire(
+                    'Supprmé!',
+                    'Ce produit a été supprimé des favoris.',
+                    'success'
+                )
+
+                if (document.querySelector(".add-to-favorite") != null) {
+                    item.style.display = "none";
+                    document.querySelector(".add-to-favorite").style.display = "block";
+                }else {
+                    item.parentElement.parentElement.parentElement.style.display = "none";
+                }
             }else {
                 Swal.fire({
                     icon: 'error',
